@@ -1,12 +1,11 @@
 "use strict";
 
-var cancelEvent = function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-};
-
 function dropFunction(target, callback) {
+    const cancelEvent = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    };
     target.addEventListener("dragover" , cancelEvent, false);
     target.addEventListener("dragenter", cancelEvent, false);
     target.addEventListener("drop"     , function(e) {
