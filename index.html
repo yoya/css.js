@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta name="copyright" content="Copyright &copy; 2021/07/27- yoya@awm.jp . All Rights Reserved.">
+    <meta charset="utf-8">
+    <title> CSS filter test </title>
+    <style>
+      .container {
+          min-width: 300px;  min-height: 300px;
+          border: thick solid green;
+          margine: 10px;
+      }
+      </style>
+  </head>
+  <body>
+    <div> <!-- control container -->
+      <input id="range" type="range" min="0.5" max="2.0" step="0.1" value="1.0">
+    </div>
+    <div style="display:flex"> <!-- image container -->
+      <div id="srcContainer" class="container">
+        <img src="" id="srcImage"/>
+      </div>
+      <div id="dstContainer" class="container">
+        <img src="" id="dstImage"/>
+      </div>
+    </div>
+    <script type="text/javascript" src="drop.js"> </script>
+    <script type="text/javascript" src="main.js"> </script>
+  </body>
+</html>
+
