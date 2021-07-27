@@ -13,7 +13,11 @@
   </head>
   <body>
     <div> <!-- control container -->
-      <input id="range" type="range" min="0.5" max="2.0" step="0.1" value="1.0">
+      <select id="filterSelect">
+        <option value="sepia"> Sepia </option>
+        <option value="blur"> Blur </option>
+      </select>
+      <input id="filterRange" type="range" min="0" max="100" step="1" value="0">
     </div>
     <div style="display:flex"> <!-- image container -->
       <div id="srcContainer" class="container">
