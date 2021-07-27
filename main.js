@@ -18,22 +18,52 @@ function cssFilterMain() {
         srcImage.src = dstImage.src = file;
     });
     filterSelect.addEventListener("change", function(e) {
-        filter = e.target.value;
+        const filter = filterSelect.value;
+        const value = filterRange.value;
+        cssFilter(dstContainer, filter, value);
     });
     filterRange.addEventListener("input", function(e) {
-        const v = e.target.value;
-        let filterValue = "";
-        switch (filter) {
-        case "sepia":
-            filterValue = "sepia("+v+"%)";
-            break;
-        case "blur":
-            const vv = v/10;
-            filterValue = "blur("+vv+"px)";
-            break;
-        default:
-            console.error("unknown filter type:"+filter);
-        }
-        dstContainer.style["filter"] =  filterValue;
+        const filter = filterSelect.value;
+        const value = filterRange.value;
+        cssFilter(dstContainer, filter, value);
     });
+}
+
+function cssFilter(target, filter, value) {
+    let filterValue = "";
+    switch (filter) {
+    case "blur": {
+        const v = value/10;
+        filterValue = filter+"("+v+"px)";
+    }
+        break;
+    case "brightness":
+    case "contrast":
+    case "saturate": {
+        const v = 2*value;
+        filterValue = filter+"("+v+"%)";
+    }
+        break;
+    case "drop-shadow": {
+        const v1 = value/10;
+        const v2 = value/8;
+        filterValue = filter+"("+v1+"px "+v1+"px "+v2+"px blue)";
+    }
+        break;
+    case "grayscale":
+    case "invert":
+    case "opacity":
+    case "sepia": {
+        filterValue = filter+"("+value+"%)";
+    }
+        break;
+    case "hue-rotate": {
+        const v = 360*value/100;
+        filterValue = filter+"("+v+"deg)";
+    }
+        break;
+    default:
+        console.error("unknown filter type:"+filter);
+    }
+    target.style["filter"] =  filterValue;
 }

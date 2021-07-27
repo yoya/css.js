@@ -13,9 +13,17 @@
   </head>
   <body>
     <div> <!-- control container -->
-      <select id="filterSelect">
-        <option value="sepia"> Sepia </option>
-        <option value="blur"> Blur </option>
+      <select id="filterSelect" size="10">
+        <option value="blur" selected> Blur        </option>
+        <option value="brightness"   > Brightness  </option>
+        <option value="contrast"     > Contrast    </option>
+        <option value="drop-shadow"  > Drop-Shadow </option>
+        <option value="grayscale"    > Grayscale   </option>
+        <option value="hue-rotate"   > Hue-Rotate  </option>
+        <option value="invert"       > Invert      </option>
+        <option value="opacity"      > Opacity     </option>
+        <option value="saturate"     > Saturate    </option>
+        <option value="sepia"        > Sepia       </option>
       </select>
       <input id="filterRange" type="range" min="0" max="100" step="1" value="0">
     </div>
