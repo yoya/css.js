@@ -12,9 +12,9 @@ function cssFilterMain() {
     const dstImage = document.getElementById("dstImage");
     const dstContainer = document.getElementById("dstContainer");
     const filterSelect = document.getElementById("filterSelect");
-    const filterRange = document.getElementById("filterRange");
+    const filterRange  = document.getElementById("filterRange");
     const bgColorText = document.getElementById("bgColorText");
-    let filter = filterSelect.value;
+    //
     dropFunction(document, function(file) {
         srcImage.src = dstImage.src = file;
     });
@@ -26,8 +26,8 @@ function cssFilterMain() {
         document.body.style["backgroundColor"] = "#"+bgColor;
     }
     filterSelect.addEventListener("change", cssFilterFunction);
-    filterRange.addEventListener("input", cssFilterFunction);
-    bgColorText.addEventListener("change", cssFilterFunction);
+    filterRange.addEventListener("input",   cssFilterFunction);
+    bgColorText.addEventListener("change",  cssFilterFunction);
     cssFilterFunction();
 }
 
