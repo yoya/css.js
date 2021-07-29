@@ -32,19 +32,19 @@ function cssFilterMain() {
 function cssFilter(target, filter, value) {
     let filterValue = "";
     switch (filter) {
-    case "blur": {
+    case "blur": {  // range: 0 ... 10
         const v = value/10;
         filterValue = filter+"("+v+"px)";
     }
         break;
     case "brightness":
     case "contrast":
-    case "saturate": {
+    case "saturate": {  // range: 0 ... 200
         const v = 2*value;
         filterValue = filter+"("+v+"%)";
     }
         break;
-    case "drop-shadow": {
+    case "drop-shadow": {  // range: 0 ... 10, 0 ... 12.5
         const v1 = value/10;
         const v2 = value/8;
         filterValue = filter+"("+v1+"px "+v1+"px "+v2+"px blue)";
@@ -53,11 +53,11 @@ function cssFilter(target, filter, value) {
     case "grayscale":
     case "invert":
     case "opacity":
-    case "sepia": {
+    case "sepia": {  // range: 0 ... 100
         filterValue = filter+"("+value+"%)";
     }
         break;
-    case "hue-rotate": {
+    case "hue-rotate": {  // range: 0 ... 360
         const v = 360*value/100;
         filterValue = filter+"("+v+"deg)";
     }
