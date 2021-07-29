@@ -4,19 +4,26 @@
     <meta charset="utf-8">
     <title> CSS filter test </title>
     <style>
+      .controller {
+          margin: 10px;
+      }
       .container {
-          min-width: 300px;  min-height: 300px;
-          margine: 10px;
+          min-width: 320px;  min-height: 240px;
+          margin: 10px;
           padding: 5px;
       }
+      .image {
+          width: 100%;
+      }
       input[type=range] {
-          width: 300px;
+          width: 320px;
       }
       </style>
   </head>
   <body>
-    <div> <!-- control container -->
-      <select id="filterSelect" size="10">
+    <div style="display:flex"> <!-- control container -->
+      Filter:
+      <select id="filterSelect" size="10" >
         <option value="blur" selected> Blur        </option>
         <option value="brightness"   > Brightness  </option>
         <option value="contrast"     > Contrast    </option>
@@ -28,15 +35,17 @@
         <option value="saturate"     > Saturate    </option>
         <option value="sepia"        > Sepia       </option>
       </select>
-      <input id="filterRange" type="range" min="0" max="100" step="1" value="0">
-      bgColor:<input id="bgColorText" class="jscolor" value="000000" size="9">
+      <div class="controller">
+        Intensity: <input id="filterRange" type="range" min="0" max="100" step="1" value="0"> <br />
+        Background Color: <input id="bgColorText" class="jscolor" value="000000" size="9">
+      </div>
     </div>
     <div style="display:flex"> <!-- image container -->
       <div id="srcContainer" class="container">
-        <img src="test.jpg" id="srcImage"/>
+        <img src="test.jpg" id="srcImage" class="image" />
       </div>
       <div id="dstContainer" class="container">
-        <img src="test.jpg" id="dstImage"/>
+        <img src="test.jpg" id="dstImage" class="image" />
       </div>
     </div>
     <script type="text/javascript" src="dist/jscolor-2.0.4/jscolor.js"> </script>
