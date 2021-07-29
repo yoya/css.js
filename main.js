@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function cssFilterMain() {
     const srcImage = document.getElementById("srcImage");
     const dstImage = document.getElementById("dstImage");
+    const srcContainer = document.getElementById("srcContainer");
     const dstContainer = document.getElementById("dstContainer");
     const filterSelect = document.getElementById("filterSelect");
     const filterRange  = document.getElementById("filterRange");
@@ -22,8 +23,9 @@ function cssFilterMain() {
         const filter = filterSelect.value;
         const value   = filterRange.value;
         const bgColor = bgColorText.value;
-        cssFilter(dstContainer, filter, value);
-        document.body.style["backgroundColor"] = "#"+bgColor;
+        cssFilter(dstImage, filter, value);
+        srcContainer.style["backgroundColor"] = "#"+bgColor;
+        dstContainer.style["backgroundColor"] = "#"+bgColor;
     }
     filterSelect.addEventListener("change", cssFilterFunction);
     filterRange.addEventListener("input",   cssFilterFunction);
