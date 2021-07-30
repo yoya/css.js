@@ -71,5 +71,5 @@ function cssFilter(target, filter, value) {
     }
     target.style["filter"] = filterValue;
     const styleText = document.getElementById("styleText");
-    styleText.innerHTML = "style=\"filter: "+filterValue+" ;\"";
+    styleText.innerHTML = "style=\"filter: "+filterValue+";\"";
 }
