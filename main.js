@@ -70,4 +70,6 @@ function cssFilter(target, filter, value) {
         console.error("unknown filter type:"+filter);
     }
     target.style["filter"] = filterValue;
+    const styleText = document.getElementById("styleText");
+    styleText.innerHTML = "style=\"filter: "+filterValue+" ;\"";
 }
