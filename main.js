@@ -35,6 +35,7 @@ function cssFilterMain() {
 
 function cssFilter(target, filter, value) {
     let filterValue = "";
+    let transformValue = "";
     switch (filter) {
     case "blur": {  // range: 0 ... 10
         const v = value/10;
@@ -66,10 +67,26 @@ function cssFilter(target, filter, value) {
         filterValue = filter+"("+v+"deg)";
     }
         break;
+    case "rotate": {  // range: (X)180  0  180(Y)
+        if (value < 50) {
+            const v = ((50-value)/50)*180
+            transformValue = "rotateX("+v+"deg)";
+        } else {
+            const v = ((value-50)/50)*180
+            transformValue = "rotateY("+v+"deg)";
+        }
+    }
+        break;
     default:
         console.error("unknown filter type:"+filter);
     }
-    target.style["filter"] = filterValue;
     const styleText = document.getElementById("styleText");
-    styleText.innerHTML = "style=\"filter: "+filterValue+";\"";
+    target.style["filter"] = filterValue;
+    target.style["transform"] = transformValue;
+    if (filterValue) {
+        styleText.innerHTML = "style=\"filter: "+filterValue+";\"";
+    }
+    if (transformValue) {
+        styleText.innerHTML = "style=\"transform: "+transformValue+";\"";1
+    }
 }
