@@ -13,6 +13,12 @@
     <div class="flex-vert">
       <div class="flex-hori">
         <div class="margin">
+          <select id="fileSelect">
+            <option value="flower.jpg" selected> flower.jpg </option>
+            <option value="flower-o6.jpg"      > flower-o6.jpg </option>
+          </select>
+        </div>
+        <div class="margin">
           角<input id="roundRange" type="range" min="0" max="1" step="0.1" value="0" \> 丸
         </div>
         <div class="margin">
@@ -23,11 +29,12 @@
         <div class="margin">
           <div id="radiusText" > ... </div>
           <div>
-            <img id="image" src="flower.jpg" >
+            <img id="image" src="flower.jpg"  style="max-width:100%;"/>
           </div>
         </div>
       </div>
     </div>
+    <script src="drop.js"> </script>
     <script src="border-radius.js"> </script>
   </body>
 </html>
