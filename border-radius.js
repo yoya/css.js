@@ -1,8 +1,9 @@
 "use strict";
 
-function roundByDecimalDigit(n, d) {
+// round by DecimalDigit (小数点以下で丸める)
+function roundByDD(n, d) {
     const scale = 10**d;
-    return String(Math.round(n * scale) / scale);
+    return Math.round(n * scale) / scale;
 }
 
 function setStyle(target) {
@@ -15,13 +16,13 @@ function setStyle(target) {
     } else {
         const { width, height }  = image;
         const radius = Math.min(width, height) / 2 * round;
-        const value = roundByDecimalDigit(radius, 3) + "px";
+        const value = String(roundByDD(radius, 3)) + "px";
         image.style.borderRadius = value;
         radiusText.innerText = "border-radius: " + value;
     }
 }
 
-funcion update() { setStyle(roundRange); }
+function update() { setStyle(roundRange); }
 
 roundRange.addEventListener("input", update);
 aspectedCheckbox.addEventListener("input", update);
