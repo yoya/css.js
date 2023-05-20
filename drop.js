@@ -12,10 +12,12 @@ function dropFunction(target, callback) {
         e.preventDefault();
         e.stopPropagation();
         const file = e.dataTransfer.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            callback(e.target.result);
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                callback(e.target.result);
+            }
+            reader.readAsDataURL(file);
         }
-        reader.readAsDataURL(file);
     }, false);
 };
