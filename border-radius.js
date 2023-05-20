@@ -6,9 +6,12 @@ function roundByDD(n, d) {
     return Math.round(n * scale) / scale;
 }
 
-function setStyle(target) {
+function setStyle() {
+    console.debug(setStyle);
     const aspected = aspectedCheckbox.checked;
-    const round = Number(target.value);
+    const round = Number(roundRange.value);
+    const blur = Number(backdropBlurRange.value);
+    console.log({aspected, round, blur});
     if (aspected) {
         const value = String(round * 50) + "%";
         image.style.borderRadius = value;
@@ -20,22 +23,34 @@ function setStyle(target) {
         image.style.borderRadius = value;
         radiusText.innerText = "border-radius: " + value;
     }
+    if (blur) {
+        background.style.backgroundImage = "url("+image.src+")";
+        backdrop.style.backdropFilter = "blur("+blur+"px)";
+    } else {
+        background.style.backgroundImage = "";
+    }
 }
 
-function update() { setStyle(roundRange); }
+function update() { setStyle(); }
 
 roundRange.addEventListener("input", update);
+backdropBlurRange.addEventListener("input", update);
 aspectedCheckbox.addEventListener("input", update);
 image.onload = update;
+
+function setImage(url) {
+    image.src = url;
+    background.style.backgroundImage = "url("+url+")";
+}
 
 fileSelect.addEventListener("input", function(e) {
     const idx = fileSelect.selectedIndex;
     const file = fileSelect.options[idx].value;
-    image.src = file;
+    setImage(file);
 });
 
 dropFunction(document, function(file) {
-    image.src = file;
+    setImage(file);
 });
 
 update();

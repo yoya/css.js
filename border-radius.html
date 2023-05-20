@@ -24,12 +24,14 @@
         <div class="margin">
           aspected round <input id="aspectedCheckbox" type="checkbox" checked \>
         </div>
-      </div>
-      <div>
         <div class="margin">
+          backdrop blur <input id="backdropBlurRange" type="range" min="0" max="10" step="1" value="0" \>
+        </div>
+      </div>
+      <div id="background" class="flex-vert" style="background-size:contain; background-repeat:no-repeat; background-image:url(flower.jpg); ">
+        <div id="backdrop" style="margine:0; backdrop-filter:blur(10px)">
           <div id="radiusText" > ... </div>
-          <div>
-            <img id="image" src="flower.jpg"  style="max-width:100%;"/>
+          <img id="image" src="flower.jpg"  style="max-width:100%;"/>
           </div>
         </div>
       </div>
