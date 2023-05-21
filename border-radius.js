@@ -11,7 +11,8 @@ function setStyle() {
     const aspected = aspectedCheckbox.checked;
     const round = Number(roundRange.value);
     const blur = Number(backdropBlurRange.value);
-    console.log({aspected, round, blur});
+    const contrast = Number(backdropContrastRange.value);
+    console.log({aspected, round, blur, contrast, backdropContrastRange},  backdropContrastRange.value);
     if (aspected) {
         const value = String(round * 50) + "%";
         image.style.borderRadius = value;
@@ -25,7 +26,7 @@ function setStyle() {
     }
     if (blur) {
         background.style.backgroundImage = "url("+image.src+")";
-        backdrop.style.backdropFilter = "blur("+blur+"px)";
+        backdrop.style.backdropFilter = "blur("+blur+"px) contrast("+contrast+"%)";
     } else {
         background.style.backgroundImage = "";
     }
@@ -33,9 +34,11 @@ function setStyle() {
 
 function update() { setStyle(); }
 
-roundRange.addEventListener("input", update);
-backdropBlurRange.addEventListener("input", update);
-aspectedCheckbox.addEventListener("input", update);
+[roundRange, aspectedCheckbox,
+ backdropBlurRange, backdropContrastRange, ].forEach((e) => {
+    e.addEventListener("input", update);
+});
+
 image.onload = update;
 
 function setImage(url) {
