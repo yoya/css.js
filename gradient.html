@@ -11,6 +11,7 @@
           
       }
       .gradBar {
+          width:300px; height:50px;
           margin: 10px;
           padding: 5px;
           border: solid black 3px;
@@ -34,24 +35,28 @@
     </div>
     <div style="display:flex; flex-wrap: wrap"> <!-- image container -->
       <div class="container">
-        srgb <div id="srgb" class="gradBar" style="width:300px; height:50px;"> </div>
-        srgb-linear <div id="srgb-linear" class="gradBar" style="width:300px; height:50px;"> </div>
+        srgb <div id="srgb" class="gradBar"> </div>
+        srgb-linear <div id="srgb-linear" class="gradBar"> </div>
       </div>
       <div class="container">
-        lab <div id="lab" class="gradBar" style="width:300px; height:50px;"> </div>
-        oklab <div id="oklab" class="gradBar" style="width:300px; height:50px;"> </div>
+        lab <div id="lab" class="gradBar"> </div>
+        oklab <div id="oklab" class="gradBar"> </div>
       </div>
       <div class="container">
-        hsl <div id="hsl" class="gradBar" style="width:300px; height:50px;"> </div>
-        hwb <div id="hwb" class="gradBar" style="width:300px; height:50px;"> </div>
+        hsl <div id="hsl" class="gradBar"> </div>
+        hwb <div id="hwb" class="gradBar"> </div>
       </div>
       <div class="container">
-        lch <div id="lch" class="gradBar" style="width:300px; height:50px;"> </div>
-        oklch <div id="oklch" class="gradBar" style="width:300px; height:50px;"> </div>
+        lch <div id="lch" class="gradBar"> </div>
+        oklch <div id="oklch" class="gradBar"> </div>
       </div>
       <div>
-        hsl shorter hue <div id="hsl shorter hue" class="gradBar" style="width:300px; height:50px;"> </div>
-        hsl longer hue <div id="hsl longer hue" class="gradBar" style="width:300px; height:50px;"> </div>
+        hsl shorter hue <div id="hsl shorter hue" class="gradBar"> </div>
+        hsl longer hue <div id="hsl longer hue" class="gradBar"> </div>
+      </div>
+      <div>
+        hsl increasing hue <div id="hsl increasing hue" class="gradBar" style=""> </div>
+        hsl decreasing hue <div id="hsl decreasing hue" class="gradBar"> </div>
       </div>
     </div>
     <script type="text/javascript" src="dist/jscolor-2.0.4/jscolor.js"> </script>
